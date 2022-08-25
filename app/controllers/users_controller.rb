@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user, only: [:create, :login]
+
   def create
     @user = User.new(user_params)
     render(json: { errors: @user.errors }, status: :bad_request) unless @user.save
