@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include BCrypt
+  # Feature test
 
   validates :email, uniqueness: true
   validates :name, presence: true
